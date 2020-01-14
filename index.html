@@ -123,14 +123,10 @@
                 var val_lable = $(this).data('val_lable');
                 var prev = parseInt($(this).data('val'));
                 var current = parseInt($(this).val());
-                var sum = 0;
                 
-                if(current > prev){
-                    sum = (current - prev)*valuenhap + parseInt(val_total);
-                    
-                }else if(current < prev){
-                    sum = parseInt(val_total) - val_lable + parseInt($("#label" + idget + idlabel).text());
-                }
+                var sum = current > prev ? (current - prev)*valuenhap + parseInt(val_total) :
+                        (parseInt(val_total) - val_lable + parseInt($("#label" + idget + idlabel).text()));
+
                 $("#"+idget).val(sum);
             });
         });
